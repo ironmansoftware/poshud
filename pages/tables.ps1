@@ -40,7 +40,7 @@ $Basic = {
     }
 }
 
-New-UDPage -Name "Tables" -Icon sort_numeric_asc -Content {
-    New-UDPageHeader -Title "Tables" -Icon "sort-numeric-asc" -Description "Display data in a static table." -DocLink "https://adamdriscoll.gitbooks.io/powershell-universal-dashboard/content/tables.html"
+New-UDPage -Name "Tables" -Icon table -Content {
+    New-UDPageHeader -Title "Tables" -Icon "table" -Description "Display data in a static table." -DocLink "https://adamdriscoll.gitbooks.io/powershell-universal-dashboard/content/tables.html"
     New-UDExample -Title "Basic Table" -Description "Display data in a table." -Script $Basic
 }

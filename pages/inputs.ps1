@@ -49,8 +49,8 @@ $ReplacingContent = {
 }
 
 
-New-UDPage -Name "Inputs" -Icon sort_numeric_asc -Content {
-    New-UDPageHeader -Title "Inputs" -Icon "sort-numeric-asc" -Description "Take input and perform actions." -DocLink "https://adamdriscoll.gitbooks.io/powershell-universal-dashboard/content/inputs.html"
+New-UDPage -Name "Inputs" -Icon wpforms -Content {
+    New-UDPageHeader -Title "Inputs" -Icon "wpforms" -Description "Take input and perform actions." -DocLink "https://adamdriscoll.gitbooks.io/powershell-universal-dashboard/content/inputs.html"
     New-UDExample -Title "Textboxes" -Description "Accept data from a textbox." -Script $Textboxes
     New-UDExample -Title "Checkboxes" -Description "Accept data from a checkbox." -Script $Checkboxes
     New-UDExample -Title "Select" -Description "Accept data from a select." -Script $Select

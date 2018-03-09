@@ -36,11 +36,49 @@ $SetContentFromAnEndpoint = {
     New-UDElement -Tag "p" -Id "target" -Attributes @{ className = "white-text" }
 }
 
-New-UDPage -Name "Elements" -Icon sort_numeric_asc -Content {
-    New-UDPageHeader -Title "Elements" -Icon "sort-numeric-asc" -Description "Create custom elements using PowerShell script to create any type of HTML node." -DocLink "https://adamdriscoll.gitbooks.io/powershell-universal-dashboard/content/custom-elements.html"
+$AddChildElements = {
+    $onClickHandler = {
+        Add-UDElement -ParentId "addChildElement" -Content {
+            New-UDElement -Tag "p" -Content {
+                "Add new element at $(Get-Date)"
+            }
+        }
+    }
+
+    New-UDElement -Tag "a" -Attributes @{ className = "btn"; onClick = $onClickHandler } -Content { "Add child element" }
+    New-UDElement -Tag "p" -Id "addChildElement" -Attributes @{ className = "white-text" }
+}
+
+$RemoveAnElement = {
+    $onClickHandler = {
+        Remove-UDElement -Id "removeMe"
+    }
+
+    New-UDElement -Tag "a" -Attributes @{ className = "btn"; onClick = $onClickHandler } -Content { "Remove text" }
+    New-UDElement -Tag "p" -Id "removeMe" -Attributes @{ className = "white-text" } -Content { "Remove me"}
+}
+
+$ClearChildren = {
+    $onClickHandler = {
+        Clear-UDElement -Id "clearMe"
+    }
+
+    New-UDElement -Tag "a" -Attributes @{ className = "btn"; onClick = $onClickHandler } -Content { "Clear Children" }
+    New-UDElement -Tag "div" -Id "clearMe" -Attributes @{ className = "card black-text" } -Endpoint { 
+        New-UDElement -Tag "p" -Content { "Child1" }
+        New-UDElement -Tag "p" -Content { "Child2" }
+        New-UDElement -Tag "p" -Content { "Child3" }
+    }
+}
+
+New-UDPage -Name "Elements" -Icon cubes -Content {
+    New-UDPageHeader -Title "Elements" -Icon "cubes" -Description "Create custom elements using PowerShell script to create any type of HTML node. Take advantage of websockets to create real-time applications." -DocLink "https://adamdriscoll.gitbooks.io/powershell-universal-dashboard/content/custom-elements.html"
     New-UDExample -Title "Simple Elements" -Description "Simple HTML element." -Script $CustomElement
     New-UDExample -Title "Nested Elements" -Description "Elements can be nested within each other." -Script $NestedElements
     New-UDExample -Title "Attributes" -Description "Set attributes on the HTML tag." -Script $Attributes
     New-UDExample -Title "Endpoints" -Description "Load the content of an element from an PowerShell endpoint." -Script $LoadContentFromAnEndpoint
-    New-UDExample -Title "Endpoints" -Description "Load the content of an element from an PowerShell endpoint." -Script $SetContentFromAnEndpoint
+    New-UDExample -Title "Update Element Content" -Description "Sets the content of a element from an endpoint." -Script $SetContentFromAnEndpoint
+    New-UDExample -Title "Add child element" -Description "Add child elements to a parent element from within an endpoint." -Script $AddChildElements
+    New-UDExample -Title "Remove element" -Description "Remove an element from within an endpoint." -Script $RemoveAnElement
+    #BUG: New-UDExample -Title "Clear children" -Description "Clear children of an element from within an endpoint." -Script $ClearChildren
 }

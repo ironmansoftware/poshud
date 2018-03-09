@@ -115,8 +115,8 @@ $AutoRefresh = {
     } -AutoRefresh -RefreshInterval 5 -FontColor "black" 
 }
 
-New-UDPage -Name "Grids" -Icon sort_numeric_asc -Content {
-    New-UDPageHeader -Title "Grids" -Icon "sort-numeric-asc" -Description "Display data in a grid that can sort, filter and page." -DocLink "https://adamdriscoll.gitbooks.io/powershell-universal-dashboard/content/grids.html"
+New-UDPage -Name "Grids" -Icon th_large -Content {
+    New-UDPageHeader -Title "Grids" -Icon "th-large" -Description "Display data in a grid that can sort, filter and page." -DocLink "https://adamdriscoll.gitbooks.io/powershell-universal-dashboard/content/grids.html"
     New-UDExample -Title "Basic Grids" -Description "A basic grid that displays data." -Script $Basic
     New-UDExample -Title "Auto Refreshing Grids" -Description "A grid that auto refreshes" -Script $AutoRefresh
 }
