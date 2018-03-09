@@ -113,8 +113,13 @@ function New-UDPageHeader {
 
 $Charts = . (Join-Path $PSScriptRoot "pages\charts.ps1")
 $Counters = . (Join-Path $PSScriptRoot "pages\counters.ps1")
+$Elements = . (Join-Path $PSScriptRoot "pages\elements.ps1")
 $Formatting = . (Join-Path $PSScriptRoot "pages\formatting.ps1")
+$Grids = . (Join-Path $PSScriptRoot "pages\grids.ps1")
+$Images = . (Join-Path $PSScriptRoot "pages\images.ps1")
+$Inputs = . (Join-Path $PSScriptRoot "pages\inputs.ps1")
 $Monitors = . (Join-Path $PSScriptRoot "pages\monitors.ps1")
+$Tables = . (Join-Path $PSScriptRoot "pages\tables.ps1")
 
 $HomePage = New-UDPage -Name "Home" -Icon home -Content {
     New-UDRow {
@@ -191,7 +196,12 @@ Start-UDDashboard -Content {
         $HomePage,
         $Charts,
         $Counters,
+        $Elements,
         $Formatting,
-        $Monitors
+        $Grids,
+        $Images,
+        $Inputs,
+        $Monitors,
+        $Tables
     )
 } -Port 10001 -AutoReload
