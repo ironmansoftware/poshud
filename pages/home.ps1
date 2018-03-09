@@ -8,7 +8,8 @@ New-UDPage -Name "Home" -Icon home -Content {
         New-UDColumn -Size 4 {
             New-UDRow {
                 New-UDColumn -Size 12 {
-                    New-UDCard @Colors -Title "Interactive Components" -Text "Display data in interactive charts, grids, tables and counters. Automatically reload data on set intervals." -Links @(New-UDLink -Text "Check out the components" -Url "/Components")
+                    New-UDCard @Colors -Title "Interactive Components" -Text "Display data in interactive charts, grids, tables and counters. Automatically reload data on set intervals.`r`nClick the hamburger menu at the top left to find out more.
+                    "
                 }
             }
             New-UDRow {
